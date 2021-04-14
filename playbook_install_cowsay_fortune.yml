@@ -1,0 +1,19 @@
+---
+- name: Playbook to install cowsay and fortune
+  hosts: aws
+  become: yes
+  gather_facts: false
+
+  tasks:
+  # installing cowsay
+  - name: Installing Cowsay
+    apt:
+      name: cowsay
+      state: present
+
+  # installing fortune
+  - name: Installing Fortune
+    apt:
+      name: fortune
+      state: present
+...
