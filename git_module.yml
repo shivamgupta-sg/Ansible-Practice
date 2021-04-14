@@ -11,11 +11,6 @@
       clone: yes
       update: yes
 
-# # Example read-write git checkout from github
-# - git:
-#     repo: ssh://git@github.com/mylogin/hello.git
-#     dest: /home/mylogin/hello
-
   # ensuring the repo checkout exists
   - name: ensuring the repo checkout exists
     git:
@@ -30,12 +25,6 @@
       dest: $HOME/srv/checkout-2/
       clone: no
       update: no
-
-  # # Example checkout a github repo and use refspec to fetch all pull requests
-  # - git:
-  #     repo: https://github.com/shivamgupta-sg/html-assignment.git
-  #     dest: $HOME/src/ansible-examples
-  #     refspec: '+refs/pull/*:refs/heads/*'
 
   # Example Create git archive from repo
   - git:

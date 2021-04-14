@@ -45,35 +45,4 @@
     debug:
       msg: "{{ item }}"
     loop: "{{ groups['all'] }}"
-  
-  
-  # # using with_item
-  # - name: Here we are providing a simple list.
-  #   debug:
-  #     msg: Current Fruit item is {{ item }}
-  #     with_items:
-  #     - apple
-  #     - banana
-
-  # # using with_item (list within list)
-  # - name: Here we are providing a list which have another list as item
-  #   debug:
-  #     msg: current value is {{ item }}
-  #     with_items:
-  #     - Tiger
-  #     - [Eagle,Falcon]
-
-  # # using with_item (dict within list)
-  # - name: Here we are providing a list which have items containing multiple values
-  #   debug:
-  #     msg: "current first value is {{ item.first }} and second value is {{ item.second }}"
-  #     with_items:
-  #     - { first: lemon, second: carrot }
-  #     - { first: cow, second: goat }
-
-  # # remove package
-  # - name: Remove Packages
-  #   apt:
-  #     name: fortune
-  #     state: absent
 ...
