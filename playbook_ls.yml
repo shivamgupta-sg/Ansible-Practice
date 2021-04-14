@@ -1,0 +1,17 @@
+---
+- name: Playbook for ls on local system
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  tasks:
+  - name: ls in Desktop
+    command: 
+      cmd: "ls /home"
+    register: Desktop_Dirs
+
+  - name: Print the Desktop_Dirs
+    debug:
+      msg: "{{ item }}"
+    loop: "{{ Desktop_Dirs.stdout_lines }}"
+...
