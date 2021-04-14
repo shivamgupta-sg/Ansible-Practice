@@ -1,0 +1,8 @@
+# Gather all facts about the manage node
+ansible all -m setup
+
+# Ping the managed node 
+ansible all -m ping
+
+# Install package
+ansible abc -b -m apt -a "name=cowsay state=present"
