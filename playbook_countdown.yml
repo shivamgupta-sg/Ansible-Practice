@@ -1,0 +1,15 @@
+---
+- name: Playbook to understand loops
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  tasks:
+  # Countdown from 10 to 1
+  - name: Print the countdown
+    debug:
+      msg: "{{ 10 - item }}"
+    loop: "{{ range(10) | list }}"
+    loop_control:
+      pause: 1
+...
