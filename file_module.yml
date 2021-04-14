@@ -1,0 +1,18 @@
+- name: Playbook for file module on ec2
+  hosts: aws
+  gather_facts: false
+
+  tasks:
+  - name: Check pwd
+    command:
+      cmd: "pwd"
+    register: pwd
+
+  - name: Display present working directory
+    debug:
+      msg: "{{ pwd }}"
+  
+  - name: check if directory exist otherwise create it
+    ansible.builtin.file:
+      path: ~/test
+      state: directory

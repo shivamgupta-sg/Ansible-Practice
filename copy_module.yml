@@ -1,0 +1,12 @@
+- name: Playbook for Copy module
+  hosts: aws
+  gather_facts: false
+
+  tasks:
+  - name: copy file from local to remote
+    copy:
+      src: ~/copy_test/{{ item }}
+      dest: $HOME/copy/{{ item }}
+    loop: 
+      - test_file
+      - test_file1
