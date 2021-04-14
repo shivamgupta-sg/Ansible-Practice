@@ -1,0 +1,10 @@
+- name: Playbook for conditional examples
+  hosts: aws
+
+  tasks:
+  - name: Install nginx on Ubuntu
+    apt: 
+      name: nginx 
+      state: present
+    become: yes
+    when: ansible_os_family == "Debian"
