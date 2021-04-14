@@ -1,0 +1,79 @@
+---
+- name: Playbook to understand loops
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  vars: 
+    numbers: [1, 2, 3, 4]
+
+    intern:
+      name: Shivam
+      Department: DevOps
+
+  tasks:
+  # Looping through a list
+  - name: Print the numbers list
+    debug:
+      msg: "{{ item }}"
+    loop: "{{ numbers }}"
+
+  # Loopoing through dictionary
+  - name: Print the dictionary
+    debug:
+      msg: "{{ item }}"
+    loop: "{{ intern | dict2items }}"
+    
+  # Looping through a range of values
+  - name: Print the range (0-9)
+    debug:
+      msg: "{{ item }}"
+    loop: "{{ range(10) | list }}"
+
+  - name: Print the range (11-15)
+    debug:
+      msg: "{{ item }}"
+    loop: "{{ range(11, 16) | list }}"
+
+  - name: Print the range (1-20 spacing of 5)
+    debug:
+      msg: "{{ item }}"
+    loop: "{{ range(0, 21, 5) | list }}"
+
+  # Looping through inventory
+  - name: Print all hosts
+    debug:
+      msg: "{{ item }}"
+    loop: "{{ groups['all'] }}"
+  
+  
+  # # using with_item
+  # - name: Here we are providing a simple list.
+  #   debug:
+  #     msg: Current Fruit item is {{ item }}
+  #     with_items:
+  #     - apple
+  #     - banana
+
+  # # using with_item (list within list)
+  # - name: Here we are providing a list which have another list as item
+  #   debug:
+  #     msg: current value is {{ item }}
+  #     with_items:
+  #     - Tiger
+  #     - [Eagle,Falcon]
+
+  # # using with_item (dict within list)
+  # - name: Here we are providing a list which have items containing multiple values
+  #   debug:
+  #     msg: "current first value is {{ item.first }} and second value is {{ item.second }}"
+  #     with_items:
+  #     - { first: lemon, second: carrot }
+  #     - { first: cow, second: goat }
+
+  # # remove package
+  # - name: Remove Packages
+  #   apt:
+  #     name: fortune
+  #     state: absent
+...
