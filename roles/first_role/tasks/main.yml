@@ -1,0 +1,80 @@
+---
+# tasks file for ./roles/first_role
+
+- name: Print the username vars passed when importing ./roles/first_role
+  debug:
+    msg: "{{ username }}"
+
+# - name: Printing gather facts
+#   debug:
+#     var: ansible_facts
+
+# # gathering package info
+# - name: Gather the package facts
+#   package_facts:
+#     manager: auto
+
+# - name: Print the package facts
+#   debug:
+#     var: ansible_facts.packages
+
+# - name: save output of package_facts into a file
+#   file:
+#     dest: $HOME/file.txt
+#     content: ansible_facts.packages
+#     state: file
+
+# - name: Update file using Jinja2
+#   template:
+#     src: demo_template.j2
+#     dest: $HOME/template_test
+
+# # install nginx
+# - name: Install nginx on Debian
+#   apt:
+#     name: nginx
+#     state: present
+#     update_cache: yes
+#   become: yes
+#   when: ansible_os_family == "Debian"
+#   notify:
+#     - start nginx
+
+# - name: Install nginx on RHEL
+#   yum:
+#     name: nginx
+#     state: present
+#     update_cache: yes
+#   become: yes
+#   when: ansible_os_family == "RedHat"
+#   notify:
+#     - start nginx
+
+# - name: Change index.html from index.j2
+#   template:
+#     src: index.j2
+#     dest: "/var/www/html/index.html"
+#   when: ansible_os_family == "Debian"
+#   become: yes
+
+# - name: Change index.html from index.j2
+#   template:
+#     src: index.j2
+#     dest: "/usr/share/nginx/html/index.html"
+#   when: ansible_os_family == "RedHat"
+#   become: yes
+
+# # gathering package info
+# - name: Gather the package facts
+#   ansible.builtin.package_facts:
+#     manager: auto
+
+# - name: Print the package facts
+#   debug:
+#     var: ansible_facts.packages
+
+# - name: Check whether java is installed
+#   debug:
+#     msg: "{{ ansible_facts.packages['java'] | length }} versions of java are installed!"
+#   when: "'java' in ansible_facts.packages"
+...

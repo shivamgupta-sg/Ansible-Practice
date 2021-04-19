@@ -1,0 +1,17 @@
+<p>
+<strong>
+Welcome to {{ username | upper }} Jinja Template!
+</strong>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<ul>
+<li> Default value - {{ abc | default(5) }}
+<li> {{ lookup('env', 'USER') | default('Shivam', true) }}
+<li> datatype of variable {{ username | type_debug }}
+</ul>
+</p>

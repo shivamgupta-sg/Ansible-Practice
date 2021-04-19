@@ -1,0 +1,10 @@
+- name: Playbook to print the variable passed in roles calling
+  hosts: aws
+
+  vars:
+    username: playVars
+
+  roles:
+      # - first_role
+    - {role: first_role, username: shivam}
+    - {role: first_role, username: SUPERMAN}

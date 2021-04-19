@@ -1,0 +1,5 @@
+---
+# vars file for ./roles/first_role
+
+username: shivam
+packages: [nginx, apache2, cowsay]
